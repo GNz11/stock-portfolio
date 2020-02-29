@@ -3,29 +3,46 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
 
-/**
- * COMPONENT
- */
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
-    <div>
+    <div className="box">
+      <h2>{displayName}</h2>
       <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
+        {name === 'signup' && (
+          <div className="form-group">
+            <input
+              name="userName"
+              type="text"
+              placeholder="name"
+              className="form-control"
+              required
+            />
+          </div>
+        )}
+        <div className="form-group">
+          <input
+            name="email"
+            type="text"
+            placeholder="email"
+            className="form-control"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <input
+            name="password"
+            type="password"
+            placeholder="password"
+            className="form-control"
+            required
+          />
         </div>
         <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <button type="submit">{displayName}</button>
+          <button className="btn btn-light btn-block" type="submit">
+            {displayName}
+          </button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>
@@ -62,9 +79,10 @@ const mapDispatch = dispatch => {
     handleSubmit(evt) {
       evt.preventDefault()
       const formName = evt.target.name
+      const name = evt.target.userName ? evt.target.userName.value : ''
       const email = evt.target.email.value
       const password = evt.target.password.value
-      dispatch(auth(email, password, formName))
+      dispatch(auth(name, email, password, formName))
     }
   }
 }
@@ -72,9 +90,6 @@ const mapDispatch = dispatch => {
 export const Login = connect(mapLogin, mapDispatch)(AuthForm)
 export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
 
-/**
- * PROP TYPES
- */
 AuthForm.propTypes = {
   name: PropTypes.string.isRequired,
   displayName: PropTypes.string.isRequired,

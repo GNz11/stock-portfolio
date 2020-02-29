@@ -10,6 +10,11 @@ label {
   display: block;
 }
 
+nav {
+  display: 'flex';
+  justify-content: 'flex-end';
+}
+
 nav a {
   display: inline-block;
   margin: 1em;
@@ -17,5 +22,22 @@ nav a {
 
 form div {
   margin: 1em;
-  display: inline-block;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid black;
+  margin-bottom: 10%;
+  margin-top: 10%;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 50px;
+}
+
+.menu {
+  display: 'flex';
+  justify-content: 'flex-end';
 }
