@@ -36,10 +36,7 @@ const User = db.define('user', {
   },
   balance: {
     type: Sequelize.DECIMAL,
-    defaultValue: 5000.0,
-    validate: {
-      isNumeric: true
-    }
+    defaultValue: 5000.0
   }
 })
 

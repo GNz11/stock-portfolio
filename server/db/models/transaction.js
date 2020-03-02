@@ -17,18 +17,11 @@ const Transaction = db.define('transaction', {
     }
   },
   type: {
-    type: Sequelize.String,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    type: Sequelize.ENUM('BUY', 'SELL')
   },
   price: {
     type: Sequelize.DECIMAL,
-    allowNull: false,
-    validate: {
-      isNumeric: true
-    }
+    allowNull: false
   }
 })
 
