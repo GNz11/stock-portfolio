@@ -8,24 +8,17 @@ class Transactions extends React.Component {
   }
 
   render() {
-    console.log('transaction props: ' + JSON.stringify(this.props.transactions))
-    console.log('transaction props: ' + this.props.transaction)
     if (!this.props.transactions || !this.props.transactions.transactions) {
       return <div>No transactions at this time..</div>
     } else {
-      console.log(
-        'transactions: ' + JSON.stringify(this.props.transactions.transactions)
-      )
-      console.log(
-        'transactions: ' + this.props.transactions.transactions.length
-      )
       return (
         <div>
           {this.props.transactions.transactions.map(transaction => (
             <div key={transaction.id}>
               <p>
-                {transaction.code} - {transaction.quantity} shares @ ${transaction.price /
-                  transaction.quantity}
+                {transaction.code} - {transaction.quantity} shares @ ${Number.parseFloat(
+                  transaction.price / transaction.quantity
+                ).toFixed(2)}
               </p>
               <hr />
             </div>

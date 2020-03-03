@@ -45,7 +45,7 @@ router.post('/', async (req, res, next) => {
 
       if (stock) {
         const prevQuantity = stock.quantity
-        const newQuantity = prevQuantity + quantity
+        const newQuantity = parseInt(prevQuantity) + parseInt(quantity)
         await Stock.update(
           {quantity: newQuantity},
           {
@@ -72,7 +72,6 @@ router.get('/', async (req, res, next) => {
   try {
     const userId = req.session.passport.user
     const transactions = await Transaction.findAll({where: {userId: userId}})
-    console.log('transactions: ' + transactions)
     res.json(transactions)
   } catch (error) {
     next(error)
