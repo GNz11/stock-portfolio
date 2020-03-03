@@ -1,5 +1,7 @@
 # Web Stock Portfolio App
 
+deployed at https://stock-portfolio-nyc.herokuapp.com/
+
 ## User Stories
 
 1.  As a user, I want to create a new account with my name, email, and password so that I can buy and
