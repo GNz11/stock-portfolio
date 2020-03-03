@@ -16,7 +16,7 @@ class Portfolio extends React.Component {
   handleSubmit(event) {
     event.preventDefault()
     const data = {
-      code: event.target.code.value,
+      code: event.target.code.value.toUpperCase(),
       quantity: event.target.quantity.value
     }
     this.props.buyStock(data)
@@ -40,7 +40,12 @@ class Portfolio extends React.Component {
               portfolio.map(stock => (
                 <div
                   key={stock.code}
-                  className="alert alert-success"
+                  className={
+                    'alert alert-' +
+                    (stock.latestPrice >= stock.previousClose
+                      ? 'success'
+                      : 'danger')
+                  }
                   role="alert"
                 >
                   <p>
