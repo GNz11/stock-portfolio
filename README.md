@@ -1,6 +1,9 @@
 # Web Stock Portfolio App
 
-deployed at https://stock-portfolio-nyc.herokuapp.com/
+Demo at https://stock-portfolio-nyc.herokuapp.com/
+
+## Run Book
+```npm run start-dev```
 
 ## User Stories
 
