@@ -9,10 +9,10 @@ class Transactions extends React.Component {
 
   render() {
     if (!this.props.transactions || !this.props.transactions.transactions) {
-      return <div>No transactions at this time..</div>
+      return <div className="container">No transactions at this time..</div>
     } else {
       return (
-        <div>
+        <div className="container">
           {this.props.transactions.transactions.map(transaction => (
             <div key={transaction.id}>
               <p>

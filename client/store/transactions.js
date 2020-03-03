@@ -23,7 +23,6 @@ export const getTransactionsThunk = () => async dispatch => {
   try {
     // pass the cookies to the api
     const res = await axios.get('/api/transactions', {withCredentials: true})
-    console.log(res.data)
     dispatch(getTransactions(res.data))
   } catch (err) {
     console.error(err)
